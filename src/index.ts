@@ -15,7 +15,10 @@ export class BlueprintRendererElement extends LitElement {
   }
 
   async firstUpdated() {
-    const data = await BlueprintRendererElement.readGraphCode("./graph.bp");
+    const data = await BlueprintRendererElement.readGraphCode(this.src).catch(
+      (err) => console.error(err)
+    );
+    console.debug(data);
     const g = this.shadowRoot?.getElementById("graph") as HTMLDivElement;
     const wrapper = this.shadowRoot?.querySelector(
       ".wrapper"
@@ -61,8 +64,6 @@ export class BlueprintRendererElement extends LitElement {
   render() {
     return html` <div class="wrapper"><div id="graph"></div></div>`;
   }
-
-  private updateGraph() {}
 }
 
 declare global {
