@@ -1,0 +1,24 @@
+{
+  "name": "blueprint-renderer-webcomponents",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/strvert/blueprint-renderer-webcomponents.git"
+  },
+  "author": "strvert <strv@strv.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/strvert/blueprint-renderer-webcomponents/issues"
+  },
+  "homepage": "https://github.com/strvert/blueprint-renderer-webcomponents#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "unrealengine",
+    "blueprint",
+    "webcomponents"
+  ],
+  "description": ""
+}
