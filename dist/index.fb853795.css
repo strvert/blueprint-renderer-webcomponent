@@ -1,0 +1,15 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  inline-size: 100%;
+  block-size: 100vh;
+}
+
+.wrapper {
+  inline-size: 80%;
+  block-size: 80vh;
+}
+/*# sourceMappingURL=index.fb853795.css.map */
