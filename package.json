@@ -36,13 +36,13 @@
   "description": "",
   "dependencies": {
     "blueprint-renderer": "^0.0.18",
+    "@swc/helpers": "^0.2.14",
     "lit": "^2.0.2"
   },
   "devDependencies": {
     "@parcel/packager-ts": "^2.0.1",
     "@parcel/transformer-sass": "^2.0.1",
     "@parcel/transformer-typescript-types": "^2.0.1",
-    "@swc/helpers": "^0.2.14",
     "parcel": "^2.0.1",
     "parcel-plugin-static-files-copy": "^2.6.0",
     "tslib": "^2.3.1",
