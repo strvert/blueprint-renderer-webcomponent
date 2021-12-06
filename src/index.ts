@@ -19,8 +19,8 @@ export class BlueprintRendererElement extends LitElement {
       (err) => console.error(err)
     );
     console.debug(data);
-    const g = this.shadowRoot?.getElementById("graph") as HTMLDivElement;
-    const wrapper = this.shadowRoot?.querySelector(
+    const g = this.shadowRoot!.getElementById("graph") as HTMLDivElement;
+    const wrapper = this.shadowRoot!.querySelector(
       ".wrapper"
     ) as HTMLDivElement;
     this.graph = new Graph(g, {
