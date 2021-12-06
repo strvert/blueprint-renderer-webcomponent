@@ -2,10 +2,26 @@ import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators";
 import { Graph } from "blueprint-renderer";
 
+function notscroll(e: any) {
+  e.preventDefault();
+}
+
+const disable = () => {
+  document.addEventListener("wheel", notscroll, { passive: false });
+  document.addEventListener("touchmove", notscroll, { passive: false });
+};
+const enable = () => {
+  document.removeEventListener("wheel", notscroll);
+  document.removeEventListener("touchmove", notscroll);
+};
+
 @customElement("blueprint-renderer")
 export class BlueprintRendererElement extends LitElement {
-  @property({ attribute: true, reflect: true })
+  @property({ attribute: true, reflect: true, type: String })
   src = "";
+
+  @property({ attribute: "scroll-disabled", reflect: true, type: Boolean })
+  scrollDisabled = false;
 
   private graph: Graph | undefined;
 
@@ -14,7 +30,7 @@ export class BlueprintRendererElement extends LitElement {
     this.graph = undefined;
   }
 
-  async firstUpdated() {
+  async updated() {
     const data = await BlueprintRendererElement.readGraphCode(this.src).catch(
       (err) => console.error(err)
     );
@@ -35,6 +51,7 @@ export class BlueprintRendererElement extends LitElement {
         this.graph.stage.height(wrapper.clientHeight);
       }
     });
+    console.log(this.scrollDisabled);
   }
 
   private static async readGraphCode(url: string) {
@@ -68,7 +85,13 @@ export class BlueprintRendererElement extends LitElement {
   `;
 
   render() {
-    return html` <div class="wrapper"><div id="graph"></div></div>`;
+    return html` <div
+      @mouseenter="${this.scrollDisabled ? disable : () => {}}"
+      @mouseleave="${enable}"
+      class="wrapper"
+    >
+      <div id="graph"></div>
+    </div>`;
   }
 }
 
