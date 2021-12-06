@@ -59,6 +59,12 @@ export class BlueprintRendererElement extends LitElement {
       inline-size: 100%;
       block-size: 100%;
     }
+    div {
+      border-radius: inherit;
+    }
+    canvas {
+      border-radius: inherit;
+    }
   `;
 
   render() {
